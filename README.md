@@ -2,7 +2,7 @@
 ===
 # MORAI - Sensor Kit (gRPC)
 
-Welcome to the Sensor tool kit of the MORAI SIM.
+Welcome to the sensor tool kit of the MORAI SIM.
 
 # MORAI Kit setup
 
@@ -24,4 +24,4 @@ $ jupyter notebook $HOME/moraikit_tutorial.ipynb
 ```
 
 # License
-- MORAI Kit license info:  [MORAI Kit License](./License.md)
+- MORAI Kit license info:  [MORAI Kit License](./LICENSE.md)
