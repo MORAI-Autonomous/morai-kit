@@ -24,4 +24,4 @@ $ jupyter notebook $HOME/moraikit_tutorial.ipynb
 ```
 
 # License
-- MORAI Kit license info:  [MORAI Kit License](./LICENSE.md)
+- MORAI Kit license info:  [MORAI Kit License](./LICENSE)
