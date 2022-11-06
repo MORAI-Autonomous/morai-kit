@@ -7,7 +7,7 @@ requirements = ['grpcio==1.44.0', 'grpcio-tools==1.44.0', 'numpy', 'spatialmath-
 
 setuptools.setup(
     name="morai-kit",
-    version="0.0.3",
+    version="0.0.4",
     author="ischoi",
     author_email="ischoi@morai.ai",
     description="MORAI Sensor Kit",
