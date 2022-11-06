@@ -9,7 +9,7 @@ def get_tr(transform):
     return tr
 
 def get_r(rotation):
-    return smb.rpy2r(rotation.roll, rotation.pitch, rotation.yaw, unity="deg", order="zyx")
+    return smb.rpy2r(rotation.roll, rotation.pitch, rotation.yaw, unit="deg", order="zyx")
 
 def r2rpy(R):
     return smb.tr2rpy(R, unit="deg", order="zyx")
