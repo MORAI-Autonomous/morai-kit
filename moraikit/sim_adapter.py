@@ -19,7 +19,7 @@ import protobuf.morai_sensor_pb2_grpc
 import protobuf.morai_type_pb2
 
 import threading
-from lib.common.utils.compress_utils import decompress
+from common_utils.compress_utils import decompress
 
 MAX_MESSAGE_LENGTH = 33554432 # 32mb
 DEFAULT_MORAI_SIM_IP = '127.0.0.1'

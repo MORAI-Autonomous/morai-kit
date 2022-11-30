@@ -56,12 +56,38 @@ class SensorApi(SimAdapter):
     def load_world(self, map_name, ego_name='2017_Kia_Niro(HEV)'):
         return super().load_world(map_name, ego_name)
 
-    def spawn_object(self, transform, obj_params=ObjectParams()):
+    # def spawn_object(self, transform, obj_params=ObjectParams()):
+    #     spawn_actor_params = protobuf.morai_actor_pb2.SpawnActorParams()
+    #     param = protobuf.morai_actor_pb2.SpawnActorParam()        
+    #     param.actor_info.actor_id = '-1'
+    #     param.actor_info.actor_type = moraikit.protobuf.morai_actor_pb2.ACTOR_TYPE_OBSTACLE
+        
+    #     to_transform_msg(param.transform, transform)
+
+    #     if obj_params.scale is None:
+    #         obj_params.scale = Vector3(1.0, 1.0, 1.0)
+    #     _obj_params = dc(obj_params)            
+    #     _obj_params.scale.x = obj_params.scale.y
+    #     _obj_params.scale.y = obj_params.scale.z
+    #     _obj_params.scale.z = obj_params.scale.x       
+    #     to_vector3_msg(param.obstacle.scale, _obj_params.scale)
+    #     param.obstacle.obstacle_name = obj_params.object_name
+
+    #     spawn_actor_params.params.append(param)
+    #     response = super().spawn_actor(spawn_actor_params)
+        
+    #     return self.extract_role_name(response)
+
+    def spawn_object(self, distance, obj_params=ObjectParams()):
         spawn_actor_params = protobuf.morai_actor_pb2.SpawnActorParams()
         param = protobuf.morai_actor_pb2.SpawnActorParam()        
         param.actor_info.actor_id = '-1'
         param.actor_info.actor_type = moraikit.protobuf.morai_actor_pb2.ACTOR_TYPE_OBSTACLE
         
+        _ego_transform = self.get_ego_transform()
+        object_transform = _ego_transform.get_transform_to(distance, obj_params)
+        transform = _ego_transform.transform(object_transform)
+
         to_transform_msg(param.transform, transform)
 
         if obj_params.scale is None:

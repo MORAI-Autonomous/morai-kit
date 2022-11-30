@@ -1,5 +1,5 @@
 import numpy as np
-from lib.common.utils.transformation import get_tr, r2rpy, iso2unity, unity2iso
+from common_utils.transformation import get_tr, r2rpy, iso2unity, unity2iso
 from enum import IntEnum
 
 class GearMode(IntEnum):
@@ -371,7 +371,34 @@ class Transform:
 
         return world_tr
 
+    def get_transform_to(self, distance, ObjectParams : 'ObjectParams'):
+        
+        _g90_front = 4.02
+        _model = ObjectParams.object_name
+        _scale = ObjectParams.scale
 
+        if _model == "OBJ_Hyundai_Grandeur":
+            transform = Transform(Location(x=_g90_front+distance+_scale.x*1.12, y=0, z=_scale.z*0.34), Rotation(yaw=0))
+        elif _model == "OBJ_Hyundai_Universe_High":
+            transform = Transform(Location(x=_g90_front+distance+_scale.x*3.24, y=0, z=_scale.z*0.53), Rotation(yaw=0))
+        elif _model == "OBJ_Hyundai_Sonata":
+            transform = Transform(Location(x=_g90_front+distance+_scale.x*1.085, y=0, z=_scale.z*0.33), Rotation(yaw=0))
+        elif _model == "SportBike":
+            transform = Transform(Location(x=_g90_front+distance+_scale.x*0.815), Rotation(yaw=0))
+        elif _model == "CargoBox":
+            transform = Transform(Location(x=_g90_front+distance+_scale.x*0.375), Rotation(yaw=0))
+        elif _model == "OBJ_Boy":
+            transform = Transform(Location(x=_g90_front+distance+_scale.x*0.1), Rotation(yaw=0))
+        elif _model == "OBJ_Man":
+            transform = Transform(Location(x=_g90_front+distance+_scale.x*0.15), Rotation(yaw=0))
+        elif _model == "Bike1":
+            transform = Transform(Location(x=_g90_front+distance+_scale.x*0.825), Rotation(yaw=180))
+        elif _model == "ChessboardObject":
+            transform = Transform(Location(x=_g90_front+distance, y=0, z=1+_scale.z*0.75), Rotation(yaw=180))
+        else:
+            raise ValueError(f"{_model} does not exist.")
+        
+        return transform
 
 class ObjectParams:
     def __init__(self):
