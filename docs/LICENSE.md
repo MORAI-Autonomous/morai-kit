@@ -1,5 +1,4 @@
 # MORAI KIT License info
-
 ---
 # NumPy: [BSD 3-Clause](https://github.com/numpy/numpy/blob/main/LICENSE.txt)
 Copyright (c) 2005-2022, NumPy Developers.
